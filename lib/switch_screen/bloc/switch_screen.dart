@@ -26,7 +26,10 @@ class _SwitchScreenState extends State<SwitchScreen> {
               children: [
                 const Text('Notificaton'),
                 BlocBuilder<SwitchBloc, SwitchState>(
+                  buildWhen: (previous, current) =>
+                      previous.isSwitch != current.isSwitch,
                   builder: (context, state) {
+                    print('Notificaton');
                     return Switch(
                         activeColor: Colors.amber,
                         value: state.isSwitch,
@@ -54,7 +57,10 @@ class _SwitchScreenState extends State<SwitchScreen> {
               height: 50,
             ),
             BlocBuilder<SwitchBloc, SwitchState>(
+              buildWhen: (previous, current) =>
+                  previous.slider != current.slider,
               builder: (context, state) {
+                print('slider');
                 return Slider(
                     value: state.slider,
                     onChanged: (value) {
