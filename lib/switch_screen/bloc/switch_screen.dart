@@ -62,6 +62,7 @@ class _SwitchScreenState extends State<SwitchScreen> {
               builder: (context, state) {
                 print('slider');
                 return Slider(
+                    activeColor: Colors.amber,
                     value: state.slider,
                     onChanged: (value) {
                       context
