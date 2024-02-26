@@ -1,4 +1,5 @@
 import 'package:blocpract/HomeView/bloc/home_bloc.dart';
+import 'package:blocpract/Image_picker/image_picker_screen.dart';
 import 'package:blocpract/switch_screen/bloc/switch_bloc.dart';
 import 'package:blocpract/switch_screen/switch_screen.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,
-          home: SwitchScreen(),
+          home: ImagePickerScreen(),
         ));
   }
 }
