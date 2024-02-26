@@ -22,12 +22,37 @@ class _ImagePickerScreenState extends State<ImagePickerScreen> {
       body: BlocBuilder<ImagePickerBloc, ImagePickerState>(
         builder: (context, state) {
           if (state.file == null) {
-            return InkWell(
-                onTap: () {
-                  context.read<ImagePickerBloc>().add(CameraCaptureEvent());
-                },
-                child: const Center(
-                     child: CircleAvatar(child: Icon(Icons.camera))));
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    InkWell(
+                        onTap: () {
+                          context
+                              .read<ImagePickerBloc>()
+                              .add(CameraCaptureEvent());
+                        },
+                        child: const Center(
+                            child: CircleAvatar(
+                                child: Icon(
+                          Icons.camera,
+                          size: 50,
+                        )))),
+                    InkWell(
+                        onTap: () {
+                          context
+                              .read<ImagePickerBloc>()
+                              .add(GalleryPickerEvent());
+                        },
+                        child: const Center(
+                            child: CircleAvatar(
+                                child: Icon(Icons.image_outlined, size: 50)))),
+                  ],
+                ),
+              ],
+            );
           } else {
             return Image.file(File(state.file!.path.toString()));
           }
