@@ -1,4 +1,4 @@
-import 'package:blocpract/HomeView/bloc/home_bloc.dart';
+import 'package:blocpract/counter/bloc/home_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

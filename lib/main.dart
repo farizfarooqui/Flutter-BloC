@@ -1,7 +1,8 @@
-import 'package:blocpract/HomeView/bloc/home_bloc.dart';
-import 'package:blocpract/Image_picker/image_picker_screen.dart';
-import 'package:blocpract/switch_screen/bloc/switch_bloc.dart';
-import 'package:blocpract/switch_screen/switch_screen.dart';
+import 'package:blocpract/Image_picker/bloc/image_picker_bloc.dart';
+import 'package:blocpract/UI/image_picker_screen.dart';
+import 'package:blocpract/counter/bloc/home_bloc.dart';
+import 'package:blocpract/switch_toggle/bloc/switch_bloc.dart';
+import 'package:blocpract/util/image_picker_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -22,6 +23,9 @@ class MyApp extends StatelessWidget {
           BlocProvider(
             create: (context) => SwitchBloc(),
           ),
+          BlocProvider(
+            create: (context) => ImagePickerBloc(ImagePickerUtils()),
+          )
         ],
         child: const MaterialApp(
           debugShowCheckedModeBanner: false,

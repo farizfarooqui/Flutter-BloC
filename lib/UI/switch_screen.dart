@@ -1,4 +1,4 @@
-import 'package:blocpract/switch_screen/bloc/switch_bloc.dart';
+import 'package:blocpract/switch_toggle/bloc/switch_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
