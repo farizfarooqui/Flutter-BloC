@@ -28,14 +28,41 @@ class _SwitchScreenState extends State<SwitchScreen> {
                 BlocBuilder<SwitchBloc, SwitchState>(
                   builder: (context, state) {
                     return Switch(
+                        activeColor: Colors.amber,
                         value: state.isSwitch,
                         onChanged: (newvalue) {
                           context.read<SwitchBloc>.call()
                               .add(EnableOrDisableSwitchEvent());
                         });
                   },
-                )
+                ),
               ],
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            BlocBuilder<SwitchBloc, SwitchState>(
+              builder: (context, state) {
+                return Container(
+                  color: Colors.amber.withOpacity(state.slider),
+                  width: double.maxFinite,
+                  height: 300,
+                );
+              },
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            BlocBuilder<SwitchBloc, SwitchState>(
+              builder: (context, state) {
+                return Slider(
+                    value: state.slider,
+                    onChanged: (value) {
+                      context
+                          .read<SwitchBloc>()
+                          .add(SliderEvent(slider: value));
+                    });
+              },
             )
           ],
         ),
