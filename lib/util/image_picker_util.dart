@@ -10,5 +10,6 @@ class ImagePickerUtils {
 
   Future<XFile?> gallerySelection() async {
     final XFile? file = await _picker.pickImage(source: ImageSource.gallery);
+    return file;
   }
 }
