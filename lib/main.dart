@@ -1,6 +1,8 @@
 import 'package:blocpract/Image_picker/bloc/image_picker_bloc.dart';
+import 'package:blocpract/UI/fav_screen.dart';
 import 'package:blocpract/UI/image_picker_screen.dart';
 import 'package:blocpract/counter/bloc/home_bloc.dart';
+import 'package:blocpract/favourite_screen/bloc/favourite_bloc.dart';
 import 'package:blocpract/switch_toggle/bloc/switch_bloc.dart';
 import 'package:blocpract/util/image_picker_util.dart';
 import 'package:flutter/material.dart';
@@ -25,11 +27,16 @@ class MyApp extends StatelessWidget {
           ),
           BlocProvider(
             create: (context) => ImagePickerBloc(ImagePickerUtils()),
+          ),
+          BlocProvider(
+            create: (context) => FavouriteBloc(),
           )
         ],
-        child: const MaterialApp(
+        child: MaterialApp(
+          themeMode: ThemeMode.dark,
+          theme: ThemeData(brightness: Brightness.dark),
           debugShowCheckedModeBanner: false,
-          home: ImagePickerScreen(),
+          home: const FavouriteScreen(),
         ));
   }
 }
