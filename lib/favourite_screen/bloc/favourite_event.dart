@@ -7,6 +7,10 @@ abstract class FavouriteEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class FetchFavListEvent extends FavouriteEvent {
-  
+class FetchFavListEvent extends FavouriteEvent {}
+
+class FavItemEvent extends FavouriteEvent {
+  final FavItemsModel favitem;
+
+  const FavItemEvent({required this.favitem});
 }

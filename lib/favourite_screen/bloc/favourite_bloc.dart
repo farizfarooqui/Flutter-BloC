@@ -13,6 +13,7 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState> {
   List<FavItemsModel> favList = [];
   FavouriteBloc(this.favouriteRespository) : super(const FavouriteState()) {
     on<FetchFavListEvent>(fetchFavListEvent);
+    on<FavItemEvent>(favItemEvent);
   }
 
   FutureOr<void> fetchFavListEvent(
@@ -20,5 +21,9 @@ class FavouriteBloc extends Bloc<FavouriteEvent, FavouriteState> {
     favList = await favouriteRespository.fetchItem();
     emit(state.cpoyWith(
         favItemsList: List.from(favList), listStatus: ListStatus.success));
+  }
+
+  FutureOr<void> favItemEvent(FavItemEvent event, Emitter<FavouriteState> emit) {
+    
   }
 }

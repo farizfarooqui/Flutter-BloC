@@ -12,7 +12,6 @@ class FavouriteScreen extends StatefulWidget {
 class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     context.read<FavouriteBloc>().add(FetchFavListEvent());
   }
@@ -38,6 +37,8 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                   return Card(
                     child: ListTile(
                       title: Text(item.value),
+                      trailing: IconButton(
+                          onPressed: () {}, icon: Icon(Icons.favorite_border)),
                     ),
                   );
                 },
