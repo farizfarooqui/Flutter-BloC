@@ -19,48 +19,51 @@ class _MyCounterScreenState extends State<MyCounterScreen> {
   MyCounterBloc myCounterBloc = MyCounterBloc();
   @override
   Widget build(BuildContext context) {
+    print('Main screen rebuiling');
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Counter App'),
       ),
-      body: BlocBuilder<MyCounterBloc, MyCounterState>(
-          bloc: myCounterBloc,
-          builder: (context, state) {
-            if (state is MyCounterIncrementState) {
-              return Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    TextButton(
-                      onPressed: () {
-                        print('Rebuilding name');
-                      },
-                      child: const Text(
-                        'Hello From Fariz !',
-                        style: TextStyle(fontSize: 30),
-                      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            TextButton(
+              onPressed: () {
+                print('Rebuilding name');
+              },
+              child: const Text(
+                'Hello From Fariz !',
+                style: TextStyle(fontSize: 30),
+              ),
+            ),
+            BlocBuilder<MyCounterBloc, MyCounterState>(
+              bloc: myCounterBloc,
+              builder: (context, state) {
+                if (state is MyCounterIncrementState) {
+                  print('Main text rebuiling');
+                  return TextButton(
+                    onPressed: () {
+                      print('Rebuilding counter');
+                    },
+                    child: Text(
+                      myCounterBloc.val.toString(),
+                      style: const TextStyle(fontSize: 40),
                     ),
-                    TextButton(
-                      onPressed: () {
-                        print('Rebuilding counter');
-                      },
-                      child: Text(
-                        myCounterBloc.val.toString(),
-                        style: const TextStyle(fontSize: 40),
-                        
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            } else {
-              return const CircularProgressIndicator();
-            }
-          }),
+                  );
+                } else {
+                  return Container(
+                    color: Colors.amber,
+                  );
+                }
+              },
+            ),
+          ],
+        ),
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           myCounterBloc.add(MyCounterIncrementEvent());
-          print('object');
         },
         child: const Icon(Icons.add),
       ),
