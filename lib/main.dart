@@ -1,6 +1,8 @@
 import 'package:blocpract/Image_picker/bloc/image_picker_bloc.dart';
+import 'package:blocpract/UI/counterscreen.dart';
 import 'package:blocpract/UI/fav_screen.dart';
 import 'package:blocpract/UI/image_picker_screen.dart';
+import 'package:blocpract/UI/my_counter.dart';
 import 'package:blocpract/counter/bloc/home_bloc.dart';
 import 'package:blocpract/favourite_screen/bloc/favourite_bloc.dart';
 import 'package:blocpract/respository/favourite_respository.dart';
@@ -37,7 +39,7 @@ class MyApp extends StatelessWidget {
           themeMode: ThemeMode.dark,
           theme: ThemeData(brightness: Brightness.dark),
           debugShowCheckedModeBanner: false,
-          home: const FavouriteScreen(),
+          home: const MyCounterScreen(),
         ));
   }
 }
