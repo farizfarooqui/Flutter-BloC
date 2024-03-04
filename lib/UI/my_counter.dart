@@ -33,7 +33,7 @@ class _MyCounterScreenState extends State<MyCounterScreen> {
                   children: [
                     TextButton(
                       onPressed: () {
-                        print('rebuilding name');
+                        print('Rebuilding name');
                       },
                       child: const Text(
                         'Hello From Fariz !',
@@ -42,11 +42,12 @@ class _MyCounterScreenState extends State<MyCounterScreen> {
                     ),
                     TextButton(
                       onPressed: () {
-                        print('rebuilding counter');
+                        print('Rebuilding counter');
                       },
                       child: Text(
                         myCounterBloc.val.toString(),
                         style: const TextStyle(fontSize: 40),
+                        
                       ),
                     ),
                   ],
