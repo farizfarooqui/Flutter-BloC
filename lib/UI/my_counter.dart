@@ -1,21 +1,17 @@
 import 'package:blocpract/My%20Counter/bloc/my_counter_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
 class MyCounterScreen extends StatefulWidget {
   const MyCounterScreen({super.key});
-
   @override
   State<MyCounterScreen> createState() => _MyCounterScreenState();
 }
-
 class _MyCounterScreenState extends State<MyCounterScreen> {
   @override
   void initState() {
     myCounterBloc.add(MyCounterIncrementEvent());
     super.initState();
   }
-
   MyCounterBloc myCounterBloc = MyCounterBloc();
   @override
   Widget build(BuildContext context) {
