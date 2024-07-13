@@ -15,7 +15,6 @@ class _MyCounterScreenState extends State<MyCounterScreen> {
   MyCounterBloc myCounterBloc = MyCounterBloc();
   @override
   Widget build(BuildContext context) {
-    print('Main screen rebuiling');
     return Scaffold(
       appBar: AppBar(
         title: const Text('My Counter App'),
